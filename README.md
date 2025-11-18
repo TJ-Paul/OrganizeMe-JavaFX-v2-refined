@@ -171,7 +171,6 @@ Got questions? Run into issues? We're here to help!
 
 **Safwan Mahdi**  
 *Bangladesh University of Engineering and Technology (CSE)* <br>
-[![GitHub](https://img.shields.io/badge/GitHub-Follow-black?style=flat&logo=github)](https://github.com/Safwan00143)
 
 
 ---
