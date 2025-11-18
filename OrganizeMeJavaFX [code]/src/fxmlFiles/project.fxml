@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox prefHeight="600.0" prefWidth="800.0" stylesheets="@../styleCSS/project.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ProjectController">
+   
+   <!-- Header -->
+   <HBox alignment="CENTER_LEFT" spacing="10.0" styleClass="header">
+      <padding>
+         <Insets bottom="10.0" left="15.0" right="15.0" top="10.0" />
+      </padding>
+      
+      <Label styleClass="header-icon" text="📋" />
+      <Label styleClass="app-title" text="Project Manager" />
+      
+      <Region HBox.hgrow="ALWAYS" />
+      
+      <Label fx:id="connectionStatus" styleClass="connection-status" text="Disconnected" />
+   </HBox>
+   
+   <Separator />
+   
+   <!-- Main Content Area -->
+   <HBox VBox.vgrow="ALWAYS">
+      
+      <!-- Left Panel - Tasks and Add Task -->
+      <VBox prefWidth="500" spacing="0" HBox.hgrow="ALWAYS">
+         
+         <!-- Add Task Section -->
+         <VBox spacing="10" styleClass="add-task-section">
+            <padding>
+               <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+            </padding>
+            
+            <Label styleClass="section-title" text="Add New Task" />
+            
+            <TextField fx:id="taskTitleInput" promptText="Task title..." styleClass="task-input" />
+            
+            <TextArea fx:id="taskDescriptionInput" prefRowCount="2" promptText="Task description (optional)..." styleClass="task-input" wrapText="true" />
+            
+            <Button fx:id="addTaskButton" onAction="#handleAddTask" styleClass="add-task-button" text="Add Task" />
+         </VBox>
+         
+         <Separator />
+         
+         <!-- Tasks List -->
+         <VBox spacing="5">
+            <padding>
+               <Insets bottom="10.0" left="15.0" right="15.0" top="10.0" />
+            </padding>
+            
+            <Label styleClass="section-title" text="Project Tasks" />
+            
+            <ScrollPane fx:id="scrollPane" fitToWidth="true" hbarPolicy="NEVER" styleClass="task-scroll" vbarPolicy="AS_NEEDED" VBox.vgrow="ALWAYS">
+               <VBox fx:id="taskArea" spacing="10" styleClass="task-area">
+                  <padding>
+                     <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                  </padding>
+               </VBox>
+            </ScrollPane>
+         </VBox>
+      </VBox>
+      
+      <Separator orientation="VERTICAL" />
+      
+      <!-- Right Panel - Chat and Users -->
+      <VBox prefWidth="300" styleClass="sidebar">
+         <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </padding>
+         
+         <!-- User List -->
+         <Label styleClass="sidebar-title" text="Team Members" />
+         <Label fx:id="userCount" styleClass="user-count" text="0 users online" />
+         
+         <ListView fx:id="userList" prefHeight="120" styleClass="user-list">
+            <padding>
+               <Insets top="5.0" />
+            </padding>
+         </ListView>
+         
+         <Separator />
+         
+         <!-- Chat Section -->
+         <VBox spacing="5" VBox.vgrow="ALWAYS">
+            <padding>
+               <Insets top="10.0" />
+            </padding>
+            
+            <Label styleClass="sidebar-title" text="Team Chat" />
+            
+            <ScrollPane fx:id="chatScrollPane" fitToWidth="true" hbarPolicy="NEVER" prefHeight="200" styleClass="chat-scroll" vbarPolicy="AS_NEEDED" VBox.vgrow="ALWAYS">
+               <VBox fx:id="chatArea" spacing="5" styleClass="chat-area">
+                  <padding>
+                     <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                  </padding>
+               </VBox>
+            </ScrollPane>
+            
+            <!-- Message Input -->
+            <HBox alignment="CENTER" spacing="5">
+               <TextField fx:id="messageInput" promptText="Type message..." styleClass="message-input-small" HBox.hgrow="ALWAYS" />
+               
+               <Button fx:id="sendMessageButton" onAction="#handleSendMessage" styleClass="send-button-small" text="Send" />
+            </HBox>
+         </VBox>
+         
+         <Region VBox.vgrow="ALWAYS" />
+         
+         <Label styleClass="status-indicator" text="🟢 Connected" />
+      </VBox>
+      
+   </HBox>
+   
+</VBox>

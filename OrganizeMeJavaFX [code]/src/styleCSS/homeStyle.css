@@ -1,0 +1,24 @@
+.button {
+    -fx-background-color: #4CAF50; /* normal color */
+    -fx-text-fill: white;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 10, 0.5, 2, 2);
+}
+
+.button:hover {
+    -fx-background-color: linear-gradient(to bottom, #5aa0f0, #4285c4);
+    -fx-scale-x: 1.05;
+    -fx-scale-y: 1.05;
+}
+
+.label {
+    -fx-text-fill: rgb(255, 255, 255);
+}
+
+#signUp:hover {
+    -fx-text-fill: rgb(0, 255, 255);
+}
+
+#logIn:hover {
+    -fx-text-fill: rgb(0, 255, 255);
+}
+

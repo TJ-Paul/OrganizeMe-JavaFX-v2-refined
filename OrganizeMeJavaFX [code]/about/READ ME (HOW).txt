@@ -1,0 +1,14 @@
+READ ME (HOW)
+- How to run:
+- download latest version of Java JDK. (version-25 or higher)
+- download OrganizeMeJavaFX folder to your device drive
+- double click Run.bat
+- enjoy
+
+----------------
+- To access networking:
+- double click on Server.bat on one device
+- navigate to "Work Together" in the app
+- change ip address from 'localhost' to your ipv4 address. (can be found in terminal by typing 'ipconfig'
+- do the same for other devices
+- enjoy

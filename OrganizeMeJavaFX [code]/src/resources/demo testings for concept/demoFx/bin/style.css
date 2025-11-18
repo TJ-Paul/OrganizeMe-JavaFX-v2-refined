@@ -1,0 +1,190 @@
+/* Enhanced Glowy UI for Triangle Connect Game */
+
+.root { 
+    -fx-font-family: "Segoe UI", "Roboto", "Helvetica Neue", Arial;
+    -fx-background-color: linear-gradient(to bottom, #0f0c29, #302b63, #24243e);
+}
+
+/* ===== TOOLBAR STYLING ===== */
+.tool-bar {
+    -fx-background-color: linear-gradient(to bottom, rgba(20, 20, 40, 0.95), rgba(15, 15, 30, 0.95));
+    -fx-padding: 15 20;
+    -fx-border-color: rgba(100, 150, 255, 0.3);
+    -fx-border-width: 0 0 2 0;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.6), 20, 0, 0, 5);
+}
+
+.tool-bar .label {
+    -fx-text-fill: rgba(255, 255, 255, 0.9);
+    -fx-font-size: 14px;
+    -fx-font-weight: 500;
+}
+
+.tool-bar .separator {
+    -fx-background-color: rgba(100, 150, 255, 0.2);
+}
+
+/* ===== BUTTONS ===== */
+.button {
+    -fx-background-color: linear-gradient(to bottom, #667eea 0%, #764ba2 100%);
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-padding: 10 25;
+    -fx-background-radius: 25;
+    -fx-border-radius: 25;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(102, 126, 234, 0.6), 15, 0.6, 0, 3);
+    -fx-border-color: rgba(255, 255, 255, 0.2);
+    -fx-border-width: 1;
+}
+
+.button:hover {
+    -fx-background-color: linear-gradient(to bottom, #7c92ff 0%, #8b5fc7 100%);
+    -fx-effect: dropshadow(gaussian, rgba(102, 126, 234, 0.9), 20, 0.7, 0, 4);
+    -fx-scale-y: 1.05;
+    -fx-scale-x: 1.05;
+}
+
+.button:pressed {
+    -fx-background-color: linear-gradient(to bottom, #5568d3 0%, #5d3a89 100%);
+    -fx-effect: dropshadow(gaussian, rgba(102, 126, 234, 0.4), 10, 0.5, 0, 2);
+}
+
+#rollBtn {
+    -fx-background-color: linear-gradient(to bottom, #f093fb 0%, #f5576c 100%);
+    -fx-effect: dropshadow(gaussian, rgba(245, 87, 108, 0.7), 18, 0.7, 0, 3);
+    -fx-font-size: 15px;
+    -fx-padding: 12 30;
+}
+
+#rollBtn:hover {
+    -fx-background-color: linear-gradient(to bottom, #ffa8ff 0%, #ff6b7f 100%);
+    -fx-effect: dropshadow(gaussian, rgba(245, 87, 108, 1.0), 25, 0.8, 0, 4);
+}
+
+/* ===== PLAYER LABELS ===== */
+.player-label {
+    -fx-font-weight: bold;
+    -fx-font-size: 16px;
+    -fx-effect: dropshadow(gaussian, rgba(255, 255, 255, 0.5), 8, 0.8, 0, 0);
+    -fx-padding: 5 15;
+    -fx-background-color: rgba(255, 255, 255, 0.1);
+    -fx-background-radius: 15;
+}
+
+/* ===== SCORE LABELS ===== */
+.score-red {
+    -fx-text-fill: #ff6b6b;
+    -fx-font-weight: bold;
+    -fx-font-size: 18px;
+    -fx-effect: dropshadow(gaussian, rgba(255, 107, 107, 0.8), 10, 0.9, 0, 0);
+    -fx-padding: 5 12;
+    -fx-background-color: rgba(255, 107, 107, 0.15);
+    -fx-background-radius: 12;
+}
+
+.score-blue {
+    -fx-text-fill: #4ecdc4;
+    -fx-font-weight: bold;
+    -fx-font-size: 18px;
+    -fx-effect: dropshadow(gaussian, rgba(78, 205, 196, 0.8), 10, 0.9, 0, 0);
+    -fx-padding: 5 12;
+    -fx-background-color: rgba(78, 205, 196, 0.15);
+    -fx-background-radius: 12;
+}
+
+/* ===== GAME BOARD ===== */
+#board {
+    -fx-background-color: radial-gradient(center 50% 50%, radius 100%, 
+        rgba(30, 30, 60, 0.4), 
+        rgba(10, 10, 30, 0.6));
+}
+
+/* ===== DOTS ===== */
+.dot {
+    -fx-fill: radial-gradient(center 50% 50%, radius 100%, 
+        rgba(255, 255, 255, 1.0), 
+        rgba(200, 220, 255, 0.9));
+    -fx-stroke: #667eea;
+    -fx-stroke-width: 2;
+    -fx-effect: dropshadow(gaussian, rgba(102, 126, 234, 0.4), 6, 0.5, 0, 0);
+    -fx-cursor: hand;
+}
+
+.dot:hover {
+    -fx-fill: radial-gradient(center 50% 50%, radius 100%, 
+        rgba(255, 255, 255, 1.0), 
+        rgba(255, 240, 150, 1.0));
+    -fx-effect: dropshadow(gaussian, rgba(255, 200, 0, 0.5), 8, 0.6, 0, 0);
+    -fx-stroke-width: 2;
+}
+
+.dot.selected {
+    -fx-fill: radial-gradient(center 50% 50%, radius 100%, 
+        rgba(255, 200, 50, 1.0), 
+        rgba(255, 150, 0, 1.0));
+    -fx-stroke: #ff9800;
+    -fx-stroke-width: 2.5;
+    -fx-effect: dropshadow(gaussian, rgba(255, 152, 0, 0.6), 10, 0.7, 0, 0);
+}
+
+/* ===== EDGES ===== */
+.edge-red {
+    -fx-stroke: linear-gradient(from 0% 0% to 100% 100%, #ff6b6b, #ee5a6f);
+    -fx-stroke-width: 3.5;
+    -fx-effect: dropshadow(gaussian, rgba(255, 107, 107, 0.9), 15, 0.8, 0, 0);
+    -fx-opacity: 0.95;
+}
+
+.edge-blue {
+    -fx-stroke: linear-gradient(from 0% 0% to 100% 100%, #4ecdc4, #44a3c2);
+    -fx-stroke-width: 3.5;
+    -fx-effect: dropshadow(gaussian, rgba(78, 205, 196, 0.9), 15, 0.8, 0, 0);
+    -fx-opacity: 0.95;
+}
+
+/* ===== TRIANGLES ===== */
+.tri-fill-red {
+    -fx-fill: radial-gradient(center 50% 50%, radius 100%, 
+        rgba(255, 107, 107, 0.35), 
+        rgba(238, 90, 111, 0.25));
+    -fx-stroke: #ff6b6b;
+    -fx-stroke-width: 2.5;
+    -fx-effect: innershadow(gaussian, rgba(255, 107, 107, 0.6), 20, 0.5, 0, 0);
+}
+
+.tri-fill-blue {
+    -fx-fill: radial-gradient(center 50% 50%, radius 100%, 
+        rgba(78, 205, 196, 0.35), 
+        rgba(68, 163, 194, 0.25));
+    -fx-stroke: #4ecdc4;
+    -fx-stroke-width: 2.5;
+    -fx-effect: innershadow(gaussian, rgba(78, 205, 196, 0.6), 20, 0.5, 0, 0);
+}
+
+/* ===== BOTTOM TIP SECTION ===== */
+.h-box {
+    -fx-background-color: linear-gradient(to bottom, rgba(15, 15, 30, 0.95), rgba(10, 10, 25, 0.95));
+    -fx-padding: 15 20;
+    -fx-border-color: rgba(100, 150, 255, 0.3);
+    -fx-border-width: 2 0 0 0;
+}
+
+.h-box .label {
+    -fx-text-fill: rgba(255, 255, 255, 0.7);
+    -fx-font-size: 13px;
+    -fx-font-style: italic;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 5, 0.5, 0, 1);
+}
+
+/* ===== REMAINING EDGES LABEL ===== */
+#remainingLbl {
+    -fx-text-fill: #f093fb;
+    -fx-font-weight: bold;
+    -fx-font-size: 18px;
+    -fx-effect: dropshadow(gaussian, rgba(240, 147, 251, 0.8), 10, 0.9, 0, 0);
+    -fx-padding: 5 12;
+    -fx-background-color: rgba(240, 147, 251, 0.15);
+    -fx-background-radius: 12;
+}

@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane prefHeight="600.0" prefWidth="740.0" stylesheets="@../styleCSS/todoStyle.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="todoController">
+
+    <top>
+        <VBox spacing="0.0" styleClass="top-section">
+            <!-- Task Input Section - Row 1: Title -->
+            <HBox alignment="CENTER_LEFT" spacing="10.0" styleClass="input-row">
+                <children>
+                    <TextField fx:id="taskInput" prefWidth="400.0" promptText="What needs to be done?" styleClass="main-input" />
+                    <Button fx:id="addTask" defaultButton="true" onAction="#handleAddTask" prefHeight="10.0" prefWidth="10.0" style="-fx-background-color: transparent;" styleClass="add-button">
+                  <graphic>
+                     <ImageView fitHeight="40.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                           <Image url="@../resources/addButton.gif" />
+                        </image>
+                     </ImageView>
+                  </graphic></Button>
+                </children>
+                <padding>
+                    <Insets bottom="8.0" left="20.0" right="20.0" top="15.0" />
+                </padding>
+            </HBox>
+
+            <!-- Task Input Section - Row 2: Date/Time/Options -->
+            <HBox alignment="CENTER_LEFT" spacing="15.0" styleClass="options-row">
+                <children>
+                    <DatePicker fx:id="dueDatePicker" prefWidth="130.0" promptText="Due Date" styleClass="compact-input" />
+                    <TextField fx:id="dueTimePicker" prefHeight="32.0" prefWidth="97.0" promptText="Time" styleClass="compact-input" />
+                    <ComboBox fx:id="priorityComboBox" prefHeight="40.0" prefWidth="118.0" promptText="Priority" styleClass="compact-combo" />
+                    <ComboBox fx:id="recurringComboBox" prefHeight="40.0" prefWidth="130.0" promptText="Recurring" styleClass="compact-combo" />
+                </children>
+                <padding>
+                    <Insets bottom="15.0" left="20.0" right="20.0" top="0.0" />
+                </padding>
+            </HBox>
+
+            <!-- Collapsible Filter Section -->
+            <VBox fx:id="filterSection" styleClass="filter-section">
+                <!-- Toggle Button -->
+                <HBox alignment="CENTER_LEFT" spacing="10.0" styleClass="toggle-section">
+                    <children>
+                        <Button fx:id="toggleFiltersButton" onAction="#toggleFilters" styleClass="toggle-button" text="⚙ Filters &amp; Search" />
+                    </children>
+                    <padding>
+                        <Insets bottom="8.0" left="20.0" right="20.0" top="8.0" />
+                    </padding>
+                </HBox>
+
+                <!-- Collapsible Content -->
+                <VBox fx:id="filtersContainer" managed="false" spacing="10.0" visible="false">
+                    <!-- Search Row -->
+                    <HBox alignment="CENTER_LEFT" spacing="10.0">
+                        <children>
+                            <Label styleClass="filter-label" text="Search:" />
+                            <TextField fx:id="searchField" prefWidth="200.0" promptText="Search tasks..." styleClass="compact-input" />
+                        </children>
+                        <padding>
+                            <Insets left="20.0" right="20.0" />
+                        </padding>
+                    </HBox>
+                    
+                    <!-- Filters Row -->
+                    <HBox alignment="CENTER_LEFT" spacing="15.0">
+                        <children>
+                            <Label styleClass="filter-label" text="Filter:" />
+                            <ComboBox fx:id="statusFilter" prefWidth="90.0" promptText="Status" styleClass="compact-combo" />
+                            <ComboBox fx:id="priorityFilter" prefWidth="90.0" promptText="Priority" styleClass="compact-combo" />
+                            
+                            <Label styleClass="filter-label" text="Sort:" />
+                            <ComboBox fx:id="sortComboBox" prefWidth="120.0" promptText="Sort by" styleClass="compact-combo" />
+                            
+                            <CheckBox fx:id="showOverdueOnly" onAction="#applyFilters" styleClass="compact-checkbox" text="Overdue only" />
+                            <Button fx:id="refreshButton" onAction="#refreshTasks" styleClass="refresh-button" text="Refresh" />
+                        </children>
+                        <padding>
+                            <Insets bottom="10.0" left="20.0" right="20.0" />
+                        </padding>
+                    </HBox>
+                </VBox>
+            </VBox>
+
+            <!-- Statistics Section -->
+            <HBox alignment="CENTER_LEFT" spacing="20.0" styleClass="stats-section">
+                <children>
+                    <Label fx:id="totalTasksLabel" styleClass="stat-item" text="Total: 0" />
+                    <Label fx:id="completedTasksLabel" styleClass="stat-item stat-completed" text="Completed: 0" />
+                    <Label fx:id="pendingTasksLabel" styleClass="stat-item stat-pending" text="Pending: 0" />
+                    <Label fx:id="overdueTasksLabel" styleClass="stat-item stat-overdue" text="Overdue: 0" />
+                </children>
+                <padding>
+                    <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
+                </padding>
+            </HBox>
+        </VBox>
+    </top>
+
+    <center>
+        <ScrollPane fitToWidth="true" styleClass="main-scroll" BorderPane.alignment="CENTER">
+            <content>
+                <VBox fx:id="taskList" spacing="8.0" styleClass="task-container">
+                    <padding>
+                        <Insets bottom="20.0" left="20.0" right="20.0" top="15.0" />
+                    </padding>
+                </VBox>
+            </content>
+        </ScrollPane>
+    </center>
+
+    <bottom>
+        <HBox alignment="CENTER" spacing="15.0" styleClass="bottom-section">
+            <children>
+                <Button fx:id="clearCompleted" mnemonicParsing="false" onAction="#clearCompletedTasks" styleClass="action-button action-clear-completed" text="Clear Completed" />
+                <Button fx:id="clear" mnemonicParsing="false" onAction="#clearTasks" styleClass="action-button action-clear-all" text="Clear All" />
+            </children>
+            <padding>
+                <Insets bottom="15.0" left="20.0" right="20.0" top="10.0" />
+            </padding>
+        </HBox>
+    </bottom>
+</BorderPane>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Light.Distant?>
+<?import javafx.scene.effect.Lighting?>
+<?import javafx.scene.effect.Shadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="page1_controller">
+   <children>
+      <HBox prefHeight="63.0" prefWidth="400.0">
+         <children>
+            <AnchorPane prefHeight="83.0" prefWidth="400.0" style="-fx-background-color: yellow;" HBox.hgrow="ALWAYS">
+               <children>
+                  <Label alignment="CENTER" cacheShape="false" centerShape="false" contentDisplay="CENTER" focusTraversable="false" prefHeight="76.0" prefWidth="400.0" scaleShape="false" text="hello" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <font>
+                        <Font name="System Bold" size="36.0" />
+                     </font>
+                     <effect>
+                        <Lighting diffuseConstant="1.05" specularConstant="1.31" surfaceScale="3.22">
+                           <bumpInput>
+                              <Shadow height="26.86" radius="11.465">
+                                 <color>
+                                    <Color red="0.7631579041481018" green="0.43457603454589844" blue="0.43457603454589844" />
+                                 </color>
+                              </Shadow>
+                           </bumpInput>
+                           <light>
+                              <Light.Distant>
+                                 <color>
+                                    <Color red="0.8421052694320679" green="0.19883041083812714" blue="0.19883041083812714" />
+                                 </color>
+                              </Light.Distant>
+                           </light>
+                        </Lighting>
+                     </effect>
+                  </Label>
+               </children>
+            </AnchorPane>
+         </children>
+      </HBox>
+      <HBox prefHeight="30.0">
+         <children>
+            <TextField fx:id="task_string" prefHeight="30.0" HBox.hgrow="ALWAYS" />
+            <Button fx:id="add_task_button" mnemonicParsing="false" onAction="#add_task" prefHeight="30.0" prefWidth="30.0" text="+" />
+         </children>
+      </HBox>
+      <AnchorPane prefHeight="511.0" prefWidth="400.0" VBox.vgrow="ALWAYS">
+         <children>
+            <ScrollPane fx:id="scrollPane" fitToWidth="true" prefHeight="386.0" prefWidth="400.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <content>
+                  <VBox fx:id="listBox" prefWidth="398.0" />
+               </content></ScrollPane>
+         </children>
+      </AnchorPane>
+   </children>
+</VBox>

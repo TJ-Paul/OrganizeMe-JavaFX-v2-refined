@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/20" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="GameController" stylesheets="@style.css">
+
+    <top>
+        <ToolBar>
+            <Button fx:id="rollBtn" text="Roll Dice" onAction="#onRoll"/>
+            <Label text="  |  Current: "/>
+            <Label fx:id="currentPlayerLbl" styleClass="player-label" text="RED"/>
+            <Label text="  |  Remaining edges: "/>
+            <Label fx:id="remainingLbl" text="0"/>
+            <Separator orientation="VERTICAL"/>
+            <Label text="  Red: "/>
+            <Label fx:id="scoreRedLbl" styleClass="score-red" text="0"/>
+            <Label text="  |  Blue: "/>
+            <Label fx:id="scoreBlueLbl" styleClass="score-blue" text="0"/>
+            <Separator orientation="VERTICAL"/>
+            <Button text="Reset" onAction="#onReset"/>
+        </ToolBar>
+    </top>
+
+    <center>
+        <Pane fx:id="board" style="-fx-background-color: #f5f5f5;" 
+              BorderPane.alignment="CENTER" />
+    </center>
+
+    <bottom>
+        <HBox spacing="8" style="-fx-padding: 10;">
+            <Label text="Tip: Roll dice first, then click two dots to connect them. Completing a triangle scores points!"/>
+        </HBox>
+    </bottom>
+</BorderPane>
