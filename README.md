@@ -163,18 +163,6 @@ Got questions? Run into issues? We're here to help!
 
 ---
 
-## 👨‍💻 Developer
-
-**Turjjo Paul**  
-*Bangladesh University of Engineering and Technology (CSE)* <br>
-[![GitHub](https://img.shields.io/badge/GitHub-Follow-black?style=flat&logo=github)](https://github.com/TJ-Paul)
-
-**Safwan Mahdi**  
-*Bangladesh University of Engineering and Technology (CSE)* <br>
-
-
----
-
 <div align="center">
 
 ### ⭐ If you find OrganizeMe useful, give it a star!
